@@ -25,7 +25,7 @@ export function LoginForm({ demoPassword }: { demoPassword: string | null }) {
         />
       </label>
       {state.error ? (
-        <p id="login-err" role="alert" className="text-sm font-medium text-[#e0705e]">
+        <p id="login-err" role="alert" className="text-sm font-medium text-danger">
           {state.error === "locked" ? t.admin.locked : t.admin.wrong}
         </p>
       ) : null}

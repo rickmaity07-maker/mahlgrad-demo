@@ -2,31 +2,37 @@
 
 /*
   Mahlgrad tokens.
-  Shape rule: one 6px radius for everything (buttons, cards, fields, photos). Stamps are the only circles.
-  One accent (cobalt). Roast brown appears only inside photography.
+  The ground is dark espresso with warm cream text; light "crema" sections (.crema) swap the
+  same tokens for a light palette, so every component works on both without extra classes.
+  Shape rule: one 6px radius for everything. Stamps are the only circles.
+  One accent (cobalt), set from brand.config.ts via --brand-accent / --brand-accent-light.
 */
 :root {
-  --stone: #ecede8;
-  --card: #f7f7f4;
-  --ink: #15171c;
-  --muted: #565b63;
-  --line: rgb(21 23 28 / 0.13);
-  --cobalt: #2342b8;
-  --cobalt-ink: #f7f7f4;
-  --ok: #2f6b4a;
+  --stone: #13100e;
+  --card: #1d1916;
+  --ink: #f1ebe2;
+  --muted: #b3a99d;
+  --line: rgb(241 235 226 / 0.14);
+  --cobalt: var(--brand-accent, #8095ff);
+  --cobalt-ink: var(--brand-accent-ink, #0d0f1c);
+  --ok: #86c9a0;
+  --danger: #ff8a73;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --stone: #101114;
-    --card: #1a1c21;
-    --ink: #e9eae5;
-    --muted: #a0a4ab;
-    --line: rgb(233 234 229 / 0.14);
-    --cobalt: #7088ff;
-    --cobalt-ink: #0d0f1c;
-    --ok: #7cc49b;
-  }
+.crema {
+  --stone: #efe8dd;
+  --card: #f8f4ee;
+  --ink: #1b1613;
+  --muted: #5d544b;
+  --line: rgb(27 22 19 / 0.13);
+  --cobalt: var(--brand-accent-light, #2342b8);
+  --cobalt-ink: var(--brand-accent-light-ink, #f7f5f0);
+  --ok: #2f6b4a;
+  --danger: #b3361f;
+  color-scheme: light;
+  background: var(--stone);
+  color: var(--ink);
 }
 
 @theme inline {
@@ -38,6 +44,8 @@
   --color-cobalt: var(--cobalt);
   --color-cobalt-ink: var(--cobalt-ink);
   --color-ok: var(--ok);
+  --color-danger: var(--danger);
+  --color-espresso: #13100e;
   --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-familjen), ui-sans-serif, sans-serif;
   --radius-m: 6px;
@@ -65,86 +73,94 @@ body {
 
 /* Component classes live in a layer so Tailwind utilities (w-24, px-4, ...) can override them. */
 @layer components {
-.display {
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-}
+  .display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  border-radius: var(--radius-m);
-  padding: 0.8rem 1.35rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition:
-    transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.2s,
-    color 0.2s;
-}
-.btn:active {
-  transform: translateY(1px);
-}
-.btn-primary {
-  background: var(--cobalt);
-  color: var(--cobalt-ink);
-}
-.btn-primary:hover {
-  background: color-mix(in oklab, var(--cobalt) 86%, black);
-}
-.btn-ghost {
-  box-shadow: inset 0 0 0 1.5px var(--ink);
-  color: var(--ink);
-}
-.btn-ghost:hover {
-  background: var(--ink);
-  color: var(--stone);
-}
-.btn:disabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cobalt);
+  }
 
-.field {
-  width: 100%;
-  border-radius: var(--radius-m);
-  border: 1.5px solid var(--line);
-  background: var(--card);
-  color: var(--ink);
-  padding: 0.75rem 0.9rem;
-}
-.field::placeholder {
-  color: color-mix(in oklab, var(--muted) 85%, transparent);
-}
-.field:focus {
-  border-color: var(--cobalt);
-  outline: none;
-}
-.field[aria-invalid="true"] {
-  border-color: #c2412d;
-}
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-m);
+    padding: 0.8rem 1.35rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition:
+      transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.2s,
+      color 0.2s;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn-primary {
+    background: var(--cobalt);
+    color: var(--cobalt-ink);
+  }
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--cobalt) 86%, white);
+  }
+  .crema .btn-primary:hover {
+    background: color-mix(in oklab, var(--cobalt) 86%, black);
+  }
+  .btn-ghost {
+    box-shadow: inset 0 0 0 1.5px var(--ink);
+    color: var(--ink);
+  }
+  .btn-ghost:hover {
+    background: var(--ink);
+    color: var(--stone);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .field {
+    width: 100%;
+    border-radius: var(--radius-m);
+    border: 1.5px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    padding: 0.75rem 0.9rem;
+  }
+  .field::placeholder {
+    color: color-mix(in oklab, var(--muted) 85%, transparent);
+  }
+  .field:focus {
+    border-color: var(--cobalt);
+    outline: none;
+  }
+  .field[aria-invalid="true"] {
+    border-color: var(--danger);
+  }
+
+  /* frosted panel for the floating header and controls over photography */
+  .glass {
+    background: rgb(19 16 14 / 0.55);
+    backdrop-filter: blur(14px) saturate(1.3);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    box-shadow:
+      inset 0 0 0 1px rgb(241 235 226 / 0.12),
+      0 10px 30px -12px rgb(0 0 0 / 0.6);
+  }
 }
 
 dialog::backdrop {
-  background: rgb(16 17 20 / 0.5);
-}
-
-/* Intro: hidden once seen (set before paint by the head script); failsafe hides it after 7s if JS never runs. */
-html[data-intro-seen] .intro {
-  display: none;
-}
-.intro {
-  animation: intro-failsafe 0s linear 7s forwards;
-}
-@keyframes intro-failsafe {
-  to {
-    visibility: hidden;
-    pointer-events: none;
-  }
+  background: rgb(10 8 7 / 0.6);
 }
 
 .rail {
@@ -156,4 +172,108 @@ html[data-intro-seen] .intro {
 }
 .rail > * {
   scroll-snap-align: start;
+}
+
+/* ---------- motion ---------- */
+
+/* Slow camera push on a still photo. Transform only, so it stays on the compositor. */
+.kenburns {
+  animation: kenburns 26s ease-in-out infinite alternate;
+  transform-origin: var(--kb-origin, 60% 40%);
+}
+@keyframes kenburns {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.16) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+/* A cup seen from above, turning very slowly. */
+.spin-slow {
+  animation: spin-slow 120s linear infinite;
+}
+.spin-reverse {
+  animation: spin-slow 70s linear infinite reverse;
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* the pause button (WCAG 2.2.2) stops every looping CSS animation */
+html[data-motion="paused"] :is(.kenburns, .spin-slow, .spin-reverse, .marquee) {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kenburns,
+  .spin-slow,
+  .spin-reverse,
+  .marquee {
+    animation: none;
+  }
+}
+
+/*
+  Soft fade between pages (template.tsx remounts on every navigation).
+  Opacity only: a transform on this wrapper, even a finished one, would become the
+  containing block for ScrollTrigger's position:fixed pins and break them.
+  Skipped on the first load (data-navigated is set after hydration): a page that starts
+  invisible pushes Largest Contentful Paint back by seconds.
+*/
+html[data-navigated] .page-enter {
+  animation: page-enter 0.4s ease-out backwards;
+}
+@keyframes page-enter {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-navigated] .page-enter {
+    animation: none;
+  }
+}
+
+/* loading placeholders */
+.skeleton {
+  background: color-mix(in oklab, var(--card) 70%, var(--ink) 6%);
+  border-radius: var(--radius-m);
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* film grain over the dark chapters; static, so it costs nothing per frame */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

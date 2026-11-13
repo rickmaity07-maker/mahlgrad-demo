@@ -1,0 +1,302 @@
+{
+  "items": [
+    {
+      "slug": "espresso",
+      "category": "espresso",
+      "name_de": "Espresso",
+      "name_en": "Espresso",
+      "desc_de": "Doppelter Shot unserer Hausmischung.",
+      "desc_en": "Double shot of our house blend.",
+      "price_cents": 240,
+      "image": "/img/c5.jpg",
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "cortado",
+      "category": "espresso",
+      "name_de": "Cortado",
+      "name_en": "Cortado",
+      "desc_de": "Espresso mit gleich viel warmer Milch.",
+      "desc_en": "Espresso cut with an equal part of warm milk.",
+      "price_cents": 320,
+      "image": null,
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "cappuccino",
+      "category": "espresso",
+      "name_de": "Cappuccino",
+      "name_en": "Cappuccino",
+      "desc_de": "Doppelter Espresso, feiner Milchschaum.",
+      "desc_en": "Double espresso, fine milk foam.",
+      "price_cents": 360,
+      "image": "/img/c2.jpg",
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "flatwhite",
+      "category": "espresso",
+      "name_de": "Flat White",
+      "name_en": "Flat White",
+      "desc_de": "Doppelter Ristretto, wenig, seidige Milch.",
+      "desc_en": "Double ristretto, a little silky milk.",
+      "price_cents": 390,
+      "image": "/img/c1.jpg",
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "latte",
+      "category": "espresso",
+      "name_de": "Caffè Latte",
+      "name_en": "Caffè Latte",
+      "desc_de": "Mild, viel Milch, groß.",
+      "desc_en": "Mild, lots of milk, large.",
+      "price_cents": 410,
+      "image": "/img/c13.jpg",
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "v60",
+      "category": "filter",
+      "name_de": "V60 des Tages",
+      "name_en": "V60 of the day",
+      "desc_de": "Handgebrüht, wechselnde Single Origins.",
+      "desc_en": "Hand-brewed, rotating single origins.",
+      "price_cents": 420,
+      "image": "/img/c8.jpg",
+      "tag": "seasonal",
+      "stock": null
+    },
+    {
+      "slug": "batch",
+      "category": "filter",
+      "name_de": "Batch Brew",
+      "name_en": "Batch Brew",
+      "desc_de": "Filterkaffee aus der Kanne, schnell und klar.",
+      "desc_en": "Filter coffee from the urn, fast and clean.",
+      "price_cents": 320,
+      "image": null,
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "icedlatte",
+      "category": "cold",
+      "name_de": "Iced Latte",
+      "name_en": "Iced Latte",
+      "desc_de": "Espresso auf Eis mit kalter Milch.",
+      "desc_en": "Espresso over ice with cold milk.",
+      "price_cents": 440,
+      "image": "/img/c9.jpg",
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "coldbrew",
+      "category": "cold",
+      "name_de": "Cold Brew",
+      "name_en": "Cold Brew",
+      "desc_de": "18 Stunden kalt extrahiert, schokoladig.",
+      "desc_en": "Steeped cold for 18 hours, chocolatey.",
+      "price_cents": 420,
+      "image": "/img/c14.jpg",
+      "tag": "new",
+      "stock": null
+    },
+    {
+      "slug": "zimtschnecke",
+      "category": "food",
+      "name_de": "Zimtschnecke",
+      "name_en": "Cinnamon Bun",
+      "desc_de": "Jeden Morgen frisch aus dem Ofen.",
+      "desc_en": "Fresh from the oven every morning.",
+      "price_cents": 350,
+      "image": null,
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "bananenbrot",
+      "category": "food",
+      "name_de": "Bananenbrot",
+      "name_en": "Banana Bread",
+      "desc_de": "Mit Walnüssen, leicht getoastet.",
+      "desc_en": "With walnuts, lightly toasted.",
+      "price_cents": 320,
+      "image": null,
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "toastie",
+      "category": "food",
+      "name_de": "Sauerteig-Toastie",
+      "name_en": "Sourdough Toastie",
+      "desc_de": "Bergkäse, Lauch, Senf.",
+      "desc_en": "Mountain cheese, leek, mustard.",
+      "price_cents": 650,
+      "image": null,
+      "tag": null,
+      "stock": null
+    },
+    {
+      "slug": "hausmischung",
+      "category": "beans",
+      "name_de": "Hausmischung",
+      "name_en": "House Blend",
+      "desc_de": "Brasilien und Kolumbien. Nuss, Kakao, wenig Säure. 250 g.",
+      "desc_en": "Brazil and Colombia. Nutty, cocoa, low acidity. 250 g.",
+      "price_cents": 1290,
+      "image": "/img/c4.jpg",
+      "tag": null,
+      "stock": 24
+    },
+    {
+      "slug": "guji",
+      "category": "beans",
+      "name_de": "Äthiopien Guji",
+      "name_en": "Ethiopia Guji",
+      "desc_de": "Gewaschen, hell geröstet. Pfirsich, Jasmin. 250 g.",
+      "desc_en": "Washed, light roast. Peach, jasmine. 250 g.",
+      "price_cents": 1550,
+      "image": "/img/c15.jpg",
+      "tag": "new",
+      "stock": 9
+    },
+    {
+      "slug": "huila",
+      "category": "beans",
+      "name_de": "Kolumbien Huila",
+      "name_en": "Colombia Huila",
+      "desc_de": "Honey-Aufbereitung. Rote Beeren, Rohrzucker. 250 g.",
+      "desc_en": "Honey process. Red berries, cane sugar. 250 g.",
+      "price_cents": 1450,
+      "image": "/img/c3.jpg",
+      "tag": null,
+      "stock": 0
+    },
+    {
+      "slug": "becher",
+      "category": "merch",
+      "name_de": "Mahlgrad Becher",
+      "name_en": "Mahlgrad Cup",
+      "desc_de": "Steinzeug, 240 ml, spülmaschinenfest.",
+      "desc_en": "Stoneware, 240 ml, dishwasher safe.",
+      "price_cents": 1900,
+      "image": "/img/c6.jpg",
+      "tag": null,
+      "stock": 12
+    }
+  ],
+  "extras": [
+    {
+      "slug": "hafer",
+      "grp": "milk",
+      "name_de": "Hafermilch",
+      "name_en": "Oat milk",
+      "price_cents": 40
+    },
+    {
+      "slug": "mandel",
+      "grp": "milk",
+      "name_de": "Mandelmilch",
+      "name_en": "Almond milk",
+      "price_cents": 40
+    },
+    {
+      "slug": "shot",
+      "grp": "add",
+      "name_de": "Extra Shot",
+      "name_en": "Extra shot",
+      "price_cents": 70
+    },
+    {
+      "slug": "vanille",
+      "grp": "add",
+      "name_de": "Vanillesirup",
+      "name_en": "Vanilla syrup",
+      "price_cents": 50
+    },
+    {
+      "slug": "karamell",
+      "grp": "add",
+      "name_de": "Karamellsirup",
+      "name_en": "Caramel syrup",
+      "price_cents": 50
+    }
+  ],
+  "settings": {
+    "hours": [
+      {
+        "day": 1,
+        "open": "07:30",
+        "close": "18:00",
+        "closed": false
+      },
+      {
+        "day": 2,
+        "open": "07:30",
+        "close": "18:00",
+        "closed": false
+      },
+      {
+        "day": 3,
+        "open": "07:30",
+        "close": "18:00",
+        "closed": false
+      },
+      {
+        "day": 4,
+        "open": "07:30",
+        "close": "18:00",
+        "closed": false
+      },
+      {
+        "day": 5,
+        "open": "07:30",
+        "close": "18:00",
+        "closed": false
+      },
+      {
+        "day": 6,
+        "open": "09:00",
+        "close": "18:00",
+        "closed": false
+      },
+      {
+        "day": 0,
+        "open": "09:00",
+        "close": "17:00",
+        "closed": false
+      }
+    ],
+    "loyalty": {
+      "stamps_per_reward": 10
+    }
+  },
+  "regulars": [
+    {
+      "phone": "4915100000001",
+      "name": "Lena Vogt",
+      "stamps": 17,
+      "rewards_redeemed": 1
+    },
+    {
+      "phone": "4915100000002",
+      "name": "Tarik Aydın",
+      "stamps": 3,
+      "rewards_redeemed": 0
+    },
+    {
+      "phone": "4915100000003",
+      "name": "Anouk de Wit",
+      "stamps": 12,
+      "rewards_redeemed": 0
+    }
+  ]
+}

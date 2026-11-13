@@ -7,6 +7,12 @@ export type LegalBusiness = {
   city: string;
   email: string;
   phone: string;
+  /** USt-IdNr. under § 27a UStG, if the business has one. */
+  vatId?: string;
+  /** Data protection authority responsible for the business's state. */
+  authority: { name: string; url: string };
+  /** How long order records are kept, per language. */
+  retention: Record<Lang, string>;
   /** What the order form collects, in plain words, per language. */
   data: Record<Lang, string>;
   /** Extra processing specific to this business (e.g. stamp card). */
@@ -57,6 +63,14 @@ export function Imprint({ b, lang }: { b: LegalBusiness; lang: Lang }) {
           E-Mail: {b.email}
         </p>
       </Section>
+      {b.vatId ? (
+        <Section title={de ? "Umsatzsteuer-ID" : "VAT ID"}>
+          <p>
+            {de ? "Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG" : "VAT identification number under § 27a UStG"}:{" "}
+            {b.vatId}
+          </p>
+        </Section>
+      ) : null}
       <Section title={de ? "Verbraucherstreitbeilegung" : "Consumer dispute resolution"}>
         <p>
           {de
@@ -85,8 +99,9 @@ export function Privacy({ b, lang }: { b: LegalBusiness; lang: Lang }) {
         <p>
           {de
             ? "Wir verwenden diese Daten nur, um deine Bestellung zuzubereiten, dich bei Rückfragen anzurufen und die Bestellung zu übergeben (Art. 6 Abs. 1 lit. b DSGVO). Bestelldaten bewahren wir so lange auf, wie es Steuer- und Handelsrecht verlangen."
-            : "We use this data only to prepare your order, call you with questions and hand the order over (Art. 6(1)(b) GDPR). Order records are kept as long as tax and commercial law require."}
+            : "We use this data only to prepare your order, call you with questions and hand the order over (Art. 6(1)(b) GDPR)."}
         </p>
+        <p>{b.retention[lang]}</p>
       </Section>
 
       {b.extra ? (
@@ -109,6 +124,11 @@ export function Privacy({ b, lang }: { b: LegalBusiness; lang: Lang }) {
             ? "Wir setzen keine Tracking- oder Werbe-Cookies. Ein Cookie merkt sich deine Sprache, der Warenkorb liegt nur in deinem Browser (localStorage). Das Team-Login nutzt ein Sitzungs-Cookie."
             : "We use no tracking or advertising cookies. One cookie remembers your language; the cart lives only in your browser (localStorage). The team login uses a session cookie."}
         </p>
+        <p>
+          {de
+            ? "Wenn du die Animationen pausierst, merkt sich dein Browser das ebenfalls im localStorage. Schriften liegen auf unserem eigenen Server, es werden keine Inhalte von Drittanbietern nachgeladen."
+            : "If you pause the animations, your browser also remembers that in localStorage. Fonts are served from our own server; no content is loaded from third parties."}
+        </p>
       </Section>
 
       <Section title={de ? "Hosting" : "Hosting"}>
@@ -117,6 +137,16 @@ export function Privacy({ b, lang }: { b: LegalBusiness; lang: Lang }) {
             ? "Die Website läuft bei Vercel Inc., die Datenbank bei Neon (Rechenzentrum Frankfurt am Main). Mit beiden bestehen Verträge zur Auftragsverarbeitung."
             : "The website runs on Vercel Inc.; the database on Neon (Frankfurt am Main data centre). Data processing agreements are in place with both."}
         </p>
+        <p>
+          {de
+            ? "Beim Aufruf der Seiten verarbeitet Vercel technisch notwendige Daten wie IP-Adresse, Zeitpunkt, aufgerufene Adresse und Browserkennung, um die Seite auszuliefern und gegen Angriffe zu schützen (Art. 6 Abs. 1 lit. f DSGVO). Diese Protokolle löscht Vercel nach kurzer Zeit automatisch."
+            : "When you open a page, Vercel processes technically necessary data such as your IP address, the time, the requested address and your browser identifier to deliver the page and protect it against attacks (Art. 6(1)(f) GDPR). Vercel deletes these logs automatically after a short time."}
+        </p>
+        <p>
+          {de
+            ? "Vercel Inc. sitzt in den USA. Die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission zum EU-US Data Privacy Framework, unter dem Vercel zertifiziert ist, sowie ergänzend auf Standardvertragsklauseln (Art. 45 und 46 DSGVO)."
+            : "Vercel Inc. is based in the USA. Transfers rely on the European Commission's adequacy decision for the EU-US Data Privacy Framework, under which Vercel is certified, and additionally on standard contractual clauses (Art. 45 and 46 GDPR)."}
+        </p>
       </Section>
 
       <Section title={de ? "Deine Rechte" : "Your rights"}>
@@ -124,6 +154,13 @@ export function Privacy({ b, lang }: { b: LegalBusiness; lang: Lang }) {
           {de
             ? "Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Schreib uns dafür eine E-Mail. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren."
             : "You have the right to access, rectification, erasure, restriction, data portability and objection. Just email us. You can also complain to a data protection authority."}
+        </p>
+        <p>
+          {de ? "Für uns zuständig ist: " : "The authority responsible for us is: "}
+          <a href={b.authority.url} className="underline underline-offset-2" rel="noopener noreferrer" target="_blank">
+            {b.authority.name}
+          </a>
+          .
         </p>
       </Section>
     </div>

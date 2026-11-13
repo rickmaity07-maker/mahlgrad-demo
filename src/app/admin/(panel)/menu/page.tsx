@@ -37,7 +37,7 @@ function Row({ row, kind, label, labels }: { row: MenuItem | Extra; kind: "item"
       </label>
       {tracked ? (
         <label className="flex items-center gap-2 text-sm">
-          <span className={low ? "font-semibold text-[#c2412d]" : "text-muted"}>{labels.stock}</span>
+          <span className={low ? "font-semibold text-danger" : "text-muted"}>{labels.stock}</span>
           <input
             name="stock"
             inputMode="numeric"

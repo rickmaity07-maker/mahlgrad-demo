@@ -98,7 +98,7 @@ export function CheckoutForm() {
 
   const err = (name: keyof FieldErrors) =>
     errors[name] ? (
-      <span id={`${name}-err`} className="text-sm font-medium text-[#c2412d]">
+      <span id={`${name}-err`} className="text-sm font-medium text-danger">
         {errors[name]}
       </span>
     ) : null;
@@ -210,7 +210,7 @@ export function CheckoutForm() {
         </dl>
         {stamps > 0 ? <p className="mt-3 text-sm text-muted">{fill(t.checkout.stamps, { n: stamps })}</p> : null}
         {formError ? (
-          <p role="alert" className="mt-4 rounded-[var(--radius-m)] bg-[#c2412d]/10 p-3 text-sm font-medium text-[#c2412d]">
+          <p role="alert" className="mt-4 rounded-[var(--radius-m)] bg-danger/10 p-3 text-sm font-medium text-danger">
             {formError}
           </p>
         ) : null}

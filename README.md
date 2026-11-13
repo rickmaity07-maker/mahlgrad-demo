@@ -1,6 +1,7 @@
 # Mahlgrad (demo)
 
-Fictional specialty coffee bar in Cologne. Portfolio demo for restaurant clients: drip intro, full home page,
+Fictional specialty coffee bar in Cologne. Portfolio demo for restaurant clients: cinematic dark home page
+(slow camera moves on the photos, canvas steam, a pinned bean-to-cup chapter),
 pre-order for pickup with time slots, stamp card (every 10th drink free), bean and merch shop with stock,
 and an admin portal. German by default, English switch.
 
@@ -19,9 +20,20 @@ npm run dev                         # or: npm run build && npm start
 `DEMO_MODE=1` shows the admin password on the login page and keeps "as soon as possible" open outside
 opening hours. Turn it off for any real client.
 
+Because the demo admin is public, a Vercel Cron job (`vercel.json`, daily 03:00 UTC) calls
+`/api/demo-reset`. It restores prices, stock, availability, hours, the loyalty rule and the three demo
+stamp cards from `db/seed.json`, and deletes orders and visitor stamp cards older than 6 hours. The route
+only exists with `DEMO_MODE=1`, runs at most once every 10 minutes, and requires
+`Authorization: Bearer $CRON_SECRET` once a `CRON_SECRET` env var is set (Vercel sends it automatically).
+
+## Rebranding and pitch links
+
+- `src/brand.config.ts`: name, wordmark, address, contact, accent colours, VAT ID, data protection authority, SEO text.
+- `/?for=Café Name`: personal pitch line in the hero, a matching share card (`/api/og`) and noindex.
+
 ## Demo flow (for the video)
 
-Intro, then scroll (the stamp card fills in), then Karte, then a Flat White with Hafermilch + Extra Shot and a
+Hero, then scroll (bean-to-cup chapter, the stamp card fills in), then Karte, then a Flat White with Hafermilch + Extra Shot and a
 bag of beans, then Abholung with phone `0151 00000003` (Anouk, has a free drink to redeem), then the status
 page. Admin `/admin`: Annehmen, Fertig, Abgeholt; the stamps then show on `/admin/loyalty`.
 

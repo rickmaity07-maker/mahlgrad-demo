@@ -23,7 +23,7 @@ export function SaveForm(props: {
         </button>
         <span aria-live="polite" className="text-sm font-medium">
           {state?.ok ? <span className="text-ok">{t.admin.menu.saved}</span> : null}
-          {state && !state.ok ? <span className="text-[#c2412d]">!</span> : null}
+          {state && !state.ok ? <span className="text-danger">!</span> : null}
         </span>
       </div>
     </form>

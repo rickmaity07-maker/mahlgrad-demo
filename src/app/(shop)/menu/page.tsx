@@ -19,7 +19,7 @@ export default async function MenuPage() {
 
       <nav
         aria-label={t.nav.menu}
-        className="rail sticky top-16 z-20 -mx-4 mt-6 flex gap-2 overflow-x-auto border-b border-line bg-stone/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6"
+        className="rail sticky top-[4.75rem] z-20 -mx-4 mt-6 flex gap-2 overflow-x-auto border-b border-line bg-stone/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6"
       >
         {groups.map(({ c }) => (
           <a
@@ -33,7 +33,7 @@ export default async function MenuPage() {
       </nav>
 
       {groups.map(({ c, items }) => (
-        <section key={c} id={c} className="scroll-mt-36 pt-12">
+        <section key={c} id={c} className="scroll-mt-44 pt-12">
           <h2 className="display text-4xl">{t.categories[c]}</h2>
           <ul className="mt-6 grid gap-3 md:grid-cols-2">
             {items.map((item) => {
@@ -62,7 +62,7 @@ export default async function MenuPage() {
                       </span>
                       <span className="mt-0.5 block text-sm text-muted">{pick(item, "desc", lang)}</span>
                       {item.stock !== null ? (
-                        <span className={`mt-1 block text-xs font-semibold ${soldOut ? "text-[#c2412d]" : "text-muted"}`}>
+                        <span className={`mt-1 block text-xs font-semibold ${soldOut ? "text-danger" : "text-muted"}`}>
                           {soldOut ? t.shop.soldOut : fill(t.shop.left, { n: item.stock })}
                         </span>
                       ) : null}

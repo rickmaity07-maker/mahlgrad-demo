@@ -1,5 +1,6 @@
 "use client";
 
+import { BRAND } from "@/brand.config";
 import Link from "next/link";
 import { useState } from "react";
 import { useLang } from "@/components/LangProvider";
@@ -55,7 +56,7 @@ export function StampLookup() {
 
       <div aria-live="polite" className="mt-8">
         {state.kind === "error" ? (
-          <p id="lookup-err" className="font-medium text-[#c2412d]">
+          <p id="lookup-err" className="font-medium text-danger">
             {state.msg}
           </p>
         ) : null}
@@ -69,7 +70,7 @@ export function StampLookup() {
         ) : null}
         {state.kind === "card" && state.card ? (
           <div className="rounded-[var(--radius-m)] bg-cobalt p-6 text-cobalt-ink sm:p-8">
-            <p className="display mb-6 text-2xl">mahlgrad</p>
+            <p className="display mb-6 text-2xl">{BRAND.wordmark}</p>
             <StampGrid filled={Math.min(state.card.progress, state.card.perReward)} total={state.card.perReward} animate />
             <p className="mt-6 text-lg font-semibold">
               {fill(t.card.progress, { n: Math.min(state.card.progress, state.card.perReward), total: state.card.perReward })}
