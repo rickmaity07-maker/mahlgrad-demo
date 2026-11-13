@@ -1,11 +1,12 @@
+import { BRAND, brandAddress } from "@/brand.config";
 import type { Category, Lang, OrderStatus } from "./types";
 
 const de = {
   nav: { menu: "Karte", shop: "Bohnen", card: "Stempelkarte", hours: "Öffnungszeiten", cart: "Bestellung" },
-  intro: { skip: "Intro überspringen" },
   hero: {
     title: "Hell geröstet. Langsam gebrüht.",
-    sub: "Specialty Coffee am Brüsseler Platz. Vorbestellen und ohne Warten abholen.",
+    sub: `Specialty Coffee ${BRAND.area.de}. Vorbestellen und ohne Warten abholen.`,
+    scroll: "Weiter nach unten",
     cta: "Vorbestellen",
     openNow: "Jetzt geöffnet",
     closedNow: "Gerade geschlossen",
@@ -26,7 +27,7 @@ const de = {
     left: "Noch {n} da",
     soldOut: "Ausverkauft",
   },
-  visit: { title: "Komm vorbei", address: "Brüsseler Platz 9, 50672 Köln", closed: "Geschlossen" },
+  visit: { title: "Komm vorbei", address: brandAddress("de"), closed: "Geschlossen" },
   days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
   categories: {
     espresso: "Espresso & Milch",
@@ -57,6 +58,7 @@ const de = {
   },
   checkout: {
     title: "Abholung",
+    demoNote: "Demo: Bitte keine echten Daten eingeben. Testbestellungen und Stempelkarten werden nach wenigen Stunden gelöscht.",
     when: "Wann holst du ab?",
     asap: "So bald wie möglich (ca. 10 Min.)",
     at: "Um {time} Uhr",
@@ -175,16 +177,35 @@ const de = {
       none: "Noch keine Verkäufe.",
     },
   },
+  motion: { pause: "Animationen pausieren", play: "Animationen abspielen" },
+  craft: {
+    eyebrow: "Vom Korn zur Tasse",
+    steps: [
+      { key: "Rösten", title: "Jeden Dienstag frisch geröstet.", body: "Kleine Chargen, hell geröstet, damit man die Herkunft schmeckt." },
+      { key: "Mahlen", title: "Gemahlen erst, wenn du bestellst.", body: "Jede Portion läuft frisch durch die Mühle. Nichts liegt auf Vorrat." },
+      { key: "Brühen", title: "Von Hand, mit Waage und Uhr.", body: "V60, Batch Brew oder Espresso: dieselbe Sorgfalt bei jeder Tasse." },
+      { key: "Abholen", title: "Fertig, wenn du kommst.", body: "Vorbestellen, Abholzeit wählen und an der Schlange vorbeigehen." },
+    ],
+  },
+  ring: "frisch gemahlen · hell geröstet · von Hand gebrüht · ",
+  reviews: { title: "Was Gäste sagen", note: "Beispielbewertungen für diese Demo. Fiktives Café." },
+  notFound: {
+    title: "Hier ist nichts aufgebrüht.",
+    body: "Diese Seite gibt es nicht (mehr). Die Maschine läuft trotzdem.",
+    home: "Zur Startseite",
+    menu: "Zur Karte",
+  },
+  pitch: { eyebrow: "Entwurf für {name}" },
 };
 
 type Dict = typeof de;
 
 const en: Dict = {
   nav: { menu: "Menu", shop: "Beans", card: "Stamp card", hours: "Opening hours", cart: "Order" },
-  intro: { skip: "Skip intro" },
   hero: {
     title: "Light roasts. Slow brews.",
-    sub: "Specialty coffee on Brüsseler Platz. Order ahead and skip the queue.",
+    sub: `Specialty coffee ${BRAND.area.en}. Order ahead and skip the queue.`,
+    scroll: "Scroll down",
     cta: "Order ahead",
     openNow: "Open now",
     closedNow: "Closed right now",
@@ -205,7 +226,7 @@ const en: Dict = {
     left: "{n} left",
     soldOut: "Sold out",
   },
-  visit: { title: "Come by", address: "Brüsseler Platz 9, 50672 Cologne", closed: "Closed" },
+  visit: { title: "Come by", address: brandAddress("en"), closed: "Closed" },
   days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
   categories: {
     espresso: "Espresso & milk",
@@ -236,6 +257,7 @@ const en: Dict = {
   },
   checkout: {
     title: "Pickup",
+    demoNote: "Demo: please don't enter real details. Test orders and stamp cards are deleted after a few hours.",
     when: "When will you pick up?",
     asap: "As soon as possible (about 10 min)",
     at: "At {time}",
@@ -341,6 +363,25 @@ const en: Dict = {
       none: "No sales yet.",
     },
   },
+  motion: { pause: "Pause animations", play: "Play animations" },
+  craft: {
+    eyebrow: "From bean to cup",
+    steps: [
+      { key: "Roast", title: "Roasted fresh every Tuesday.", body: "Small batches, light roast, so you can taste where it comes from." },
+      { key: "Grind", title: "Ground only when you order.", body: "Every shot goes through the grinder fresh. Nothing sits waiting." },
+      { key: "Brew", title: "By hand, with scale and timer.", body: "V60, batch brew or espresso: the same care in every cup." },
+      { key: "Pick up", title: "Ready when you arrive.", body: "Order ahead, choose a pickup time and walk past the queue." },
+    ],
+  },
+  ring: "freshly ground · light roast · brewed by hand · ",
+  reviews: { title: "What guests say", note: "Sample reviews for this demo. Fictional café." },
+  notFound: {
+    title: "Nothing brewing here.",
+    body: "This page doesn't exist (any more). The machine is still on, though.",
+    home: "Back to the homepage",
+    menu: "See the menu",
+  },
+  pitch: { eyebrow: "A draft for {name}" },
 };
 
 export const dictionaries: Record<Lang, Dict> = { de, en };

@@ -37,7 +37,7 @@ export function CartDrawer() {
           </div>
         ) : (
           <>
-            <ul className="flex-1 divide-y divide-line overflow-y-auto px-5">
+            <ul className="flex-1 divide-y divide-line overflow-y-auto px-5" data-lenis-prevent>
               {lines.map((l, i) => {
                 const key = cart[i].key;
                 const atMax = l.item.stock !== null && cart.filter((c) => c.itemId === l.item.id).reduce((s, c) => s + c.qty, 0) >= l.item.stock;
@@ -100,7 +100,6 @@ export function CartButton() {
       type="button"
       onClick={() => setDrawerOpen(true)}
       className="btn btn-primary px-3.5 py-2 text-sm"
-      aria-label={`${t.nav.cart}, ${count}`}
     >
       {t.nav.cart}
       <span className="tabular-nums">{count}</span>

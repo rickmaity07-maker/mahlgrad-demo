@@ -1,3 +1,4 @@
+import { BRAND } from "@/brand.config";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { LangToggle } from "@/components/LangProvider";
@@ -13,7 +14,7 @@ export default async function LoginPage() {
     <div className="grid min-h-dvh place-items-center bg-cobalt px-4 text-cobalt-ink">
       <div className="w-full max-w-sm rounded-[var(--radius-m)] bg-stone p-7 text-ink">
         <div className="mb-6 flex items-center justify-between">
-          <p className="display text-3xl text-cobalt">mahlgrad</p>
+          <p className="display text-3xl text-cobalt">{BRAND.wordmark}</p>
           <LangToggle />
         </div>
         <LoginForm demoPassword={demoPassword} />

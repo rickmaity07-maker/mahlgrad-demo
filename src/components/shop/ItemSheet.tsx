@@ -66,11 +66,11 @@ function ItemForm({ item }: { item: MenuItem }) {
         <X size={18} weight="bold" />
       </button>
 
-      <div className="flex-1 overflow-y-auto px-5 pb-4 pt-5">
+      <div className="flex-1 overflow-y-auto px-5 pb-4 pt-5" data-lenis-prevent>
         <h2 className="display pr-12 text-3xl">{pick(item, "name", lang)}</h2>
         <p className="mt-2 text-muted">{pick(item, "desc", lang)}</p>
         {item.stock !== null ? (
-          <p className={`mt-3 text-sm font-semibold ${soldOut ? "text-[#c2412d]" : "text-muted"}`}>
+          <p className={`mt-3 text-sm font-semibold ${soldOut ? "text-danger" : "text-muted"}`}>
             {soldOut ? t.item.soldOut : fill(t.item.left, { n: maxQty })}
           </p>
         ) : null}
