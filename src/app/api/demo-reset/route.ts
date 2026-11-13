@@ -1,7 +1,15 @@
+import { timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
 import { resetDemo } from "@/lib/demoReset";
 
 export const dynamic = "force-dynamic";
+
+/** constant-time compare, so response timing reveals nothing about the secret */
+function sameSecret(given: string, expected: string) {
+  const a = Buffer.from(given);
+  const b = Buffer.from(expected);
+  return a.length === b.length && timingSafeEqual(a, b);
+}
 
 /**
  * Nightly reset of the public demo (Vercel Cron, see vercel.json).
@@ -12,7 +20,7 @@ export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   if (process.env.DEMO_MODE !== "1") return new NextResponse(null, { status: 404 });
   const secret = process.env.CRON_SECRET;
-  if (secret && request.headers.get("authorization") !== `Bearer ${secret}`) {
+  if (secret && !sameSecret(request.headers.get("authorization") ?? "", `Bearer ${secret}`)) {
     return new NextResponse(null, { status: 401 });
   }
   try {

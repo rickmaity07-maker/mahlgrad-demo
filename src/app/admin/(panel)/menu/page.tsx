@@ -20,7 +20,7 @@ function Row({ row, kind, label, labels }: { row: MenuItem | Extra; kind: "item"
       <input type="hidden" name="id" value={row.id} />
       <input type="hidden" name="kind" value={kind} />
       {"image" in row ? (
-        <span className="relative size-12 shrink-0 overflow-hidden rounded-[var(--radius-m)] bg-ink">
+        <span className="relative size-12 shrink-0 overflow-hidden rounded-[var(--radius-m)] bg-stone">
           {row.image ? <Image src={row.image} alt="" fill sizes="48px" className="object-cover" /> : null}
         </span>
       ) : null}

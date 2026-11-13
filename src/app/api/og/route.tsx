@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   const png = new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", background: "#000" }}>
-        {/* the burger sits on the right; the photo's black ground blends into the page */}
+        {/* the photo sits on the right and fades into the black text panel */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={src} width={840} height={630} alt="" style={{ position: "absolute", left: 360, top: 0 }} />
         <div
