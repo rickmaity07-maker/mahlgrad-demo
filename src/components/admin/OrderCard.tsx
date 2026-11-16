@@ -33,7 +33,7 @@ export function OrderLines({ order, large = false }: { order: OrderView; large?:
 export function PickupBadge({ order }: { order: OrderView }) {
   const { lang, t } = useLang();
   return (
-    <span className="inline-flex items-center gap-1 rounded-[var(--radius-m)] bg-cobalt/12 px-2 py-1 text-xs font-semibold text-cobalt">
+    <span className="inline-flex items-center gap-1 rounded-[var(--radius-m)] bg-copper/12 px-2 py-1 text-xs font-semibold text-copper">
       <Clock size={14} weight="bold" />
       {order.pickup_at ? fill(t.admin.orders.at, { time: formatTime(order.pickup_at, lang) }) : t.admin.orders.asap}
     </span>
@@ -56,7 +56,7 @@ export function OrderCard(props: {
     <article
       onMouseEnter={props.onSeen}
       onFocus={props.onSeen}
-      className={`rounded-[var(--radius-m)] bg-card p-4 ${props.fresh ? "ring-2 ring-cobalt" : "ring-1 ring-line"}`}
+      className={`rounded-[var(--radius-m)] bg-card p-4 ${props.fresh ? "ring-2 ring-copper" : "ring-1 ring-line"}`}
     >
       <header className="flex items-start justify-between gap-3">
         <div>
@@ -72,7 +72,7 @@ export function OrderCard(props: {
       </div>
       {order.note ? <p className="mt-3 rounded-[var(--radius-m)] bg-stone p-2 text-sm">{order.note}</p> : null}
       {order.discount_cents > 0 ? (
-        <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-cobalt">
+        <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-copper">
           <Gift size={16} weight="bold" /> {t.admin.orders.reward}
         </p>
       ) : null}

@@ -1,7 +1,13 @@
 import "server-only";
-import { neon, type NeonQueryFunction } from "@neondatabase/serverless";
+import { neon, neonConfig, type NeonQueryFunction } from "@neondatabase/serverless";
 
 const url = process.env.DATABASE_URL;
+
+// End-to-end tests only: send queries to the local in-memory database (tests/support/local-db.mjs).
+// Refused in production builds so a stray env var can never redirect live traffic.
+if (process.env.NEON_LOCAL_ENDPOINT && process.env.VERCEL_ENV !== "production") {
+  neonConfig.fetchEndpoint = process.env.NEON_LOCAL_ENDPOINT;
+}
 
 /**
  * Pooled HTTP client for request-time queries. Always use tagged templates (parameterised).

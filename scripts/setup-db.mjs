@@ -2,7 +2,10 @@
 // Run: npm run db:setup                       (keeps orders and stamp cards)
 //      npm run db:setup -- --reset-orders     (also clears orders, stamp cards and restores stock)
 import { readFileSync } from "node:fs";
-import { neon } from "@neondatabase/serverless";
+import { neon, neonConfig } from "@neondatabase/serverless";
+
+// end-to-end tests seed a local in-memory database (tests/support/local-db.mjs)
+if (process.env.NEON_LOCAL_ENDPOINT) neonConfig.fetchEndpoint = process.env.NEON_LOCAL_ENDPOINT;
 
 const url = process.env.DATABASE_URL_UNPOOLED || process.env.DATABASE_URL;
 if (!url) throw new Error("DATABASE_URL is not set (see .env.local)");

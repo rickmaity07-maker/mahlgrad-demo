@@ -12,11 +12,11 @@ export default async function NotFound() {
         <Image src="/img/c5.jpg" alt="" fill sizes="100vw" className="kenburns object-cover opacity-40" />
         <div
           className="absolute inset-0"
-          style={{ background: "radial-gradient(70% 60% at 50% 45%, rgb(19 16 14 / 0.55), rgb(19 16 14 / 0.94))" }}
+          style={{ background: "radial-gradient(70% 60% at 50% 45%, rgb(20 16 13 / 0.55), rgb(20 16 13 / 0.94))" }}
         />
       </div>
       <div className="max-w-2xl text-center">
-        <Link href="/" className="display text-4xl text-cobalt">
+        <Link href="/" className="display text-4xl text-copper">
           {BRAND.wordmark}
         </Link>
         <p className="display mt-10 text-[clamp(5rem,18vw,11rem)] leading-none text-ink/15" aria-hidden="true">

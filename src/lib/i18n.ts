@@ -187,7 +187,6 @@ const de = {
       { key: "Abholen", title: "Fertig, wenn du kommst.", body: "Vorbestellen, Abholzeit wählen und an der Schlange vorbeigehen." },
     ],
   },
-  ring: "frisch gemahlen · hell geröstet · von Hand gebrüht · ",
   reviews: { title: "Was Gäste sagen", note: "Beispielbewertungen für diese Demo. Fiktives Café." },
   notFound: {
     title: "Hier ist nichts aufgebrüht.",
@@ -373,7 +372,6 @@ const en: Dict = {
       { key: "Pick up", title: "Ready when you arrive.", body: "Order ahead, choose a pickup time and walk past the queue." },
     ],
   },
-  ring: "freshly ground · light roast · brewed by hand · ",
   reviews: { title: "What guests say", note: "Sample reviews for this demo. Fictional café." },
   notFound: {
     title: "Nothing brewing here.",

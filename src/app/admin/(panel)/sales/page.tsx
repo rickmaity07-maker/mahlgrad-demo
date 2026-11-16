@@ -59,7 +59,7 @@ export default async function SalesPage() {
               <span className="text-muted">{dayName(d.day)}</span>
               <span className="h-5">
                 <span
-                  className="block h-full rounded-r-[3px] bg-cobalt"
+                  className="block h-full rounded-r-[3px] bg-copper"
                   style={{ width: `${(d.revenue / max) * 100}%`, minWidth: d.revenue > 0 ? 4 : 0 }}
                 />
               </span>

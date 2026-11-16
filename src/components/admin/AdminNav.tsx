@@ -25,7 +25,7 @@ export function AdminNav() {
             href={href}
             aria-current={active ? "page" : undefined}
             className={`shrink-0 rounded-[var(--radius-m)] px-3 py-1.5 text-sm font-medium ${
-              active ? "bg-cobalt text-cobalt-ink" : "text-muted hover:text-ink"
+              active ? "bg-copper text-copper-ink" : "text-muted hover:text-ink"
             }`}
           >
             {label}

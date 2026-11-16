@@ -12,7 +12,21 @@ npm install
 npm run db:setup                    # schema + menu seed (keeps orders and stamp cards)
 npm run db:setup -- --reset-orders  # clean slate: clears orders, resets stock and demo stamp cards
 npm run dev                         # or: npm run build && npm start
+npm test                            # unit tests (pricing)
+npm run test:e2e                    # browser tests: order flow, admin, security, site health, clips
+npm run clips                       # encode Google Flow clips from flow/ (see FLOW_SHOTS.md)
 ```
+
+`test:e2e` builds the site and runs it against a throwaway in-memory Postgres (PGlite behind a
+Neon-compatible endpoint, `tests/support/local-db.mjs`), seeded from `db/seed.json`. It never
+touches the Neon database in `.env.local`.
+
+## Moving pictures (Google Flow)
+
+The home page has nine clip slots (`src/lib/media.ts`). Each shows its photo until a clip is added.
+`FLOW_SHOTS.md` has the Flow prompts and start frames; `npm run clips` encodes the downloads and
+switches the slots on. Clips load only near the screen, play only while visible, stop with the
+site's pause button and are skipped for reduced motion and Save-Data.
 
 `.env.local` (git-ignored) holds `DATABASE_URL` / `DATABASE_URL_UNPOOLED` (Neon **test** project
 `mahlgrad-demo`, never production), `ADMIN_PASSWORD`, `ADMIN_SECRET` and `DEMO_MODE=1`.

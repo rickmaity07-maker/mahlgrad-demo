@@ -104,7 +104,7 @@ export function CartButton() {
       {t.nav.cart}
       <span className="tabular-nums">{count}</span>
       {count > 0 && priced.ok ? (
-        <span className="hidden border-l border-cobalt-ink/30 pl-2 tabular-nums sm:inline">
+        <span className="hidden border-l border-copper-ink/30 pl-2 tabular-nums sm:inline">
           {formatPrice(priced.subtotalCents, lang)}
         </span>
       ) : null}

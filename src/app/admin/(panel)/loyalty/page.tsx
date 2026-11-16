@@ -59,7 +59,7 @@ export default async function LoyaltyPage(props: PageProps<"/admin/loyalty">) {
                     <td className="px-4 py-3">
                       <span className="flex items-center gap-1" aria-label={`${onCard} / ${per}`}>
                         {Array.from({ length: per }, (_, i) => (
-                          <span key={i} className={`size-2.5 rounded-full ${i < onCard ? "bg-cobalt" : "bg-line"}`} />
+                          <span key={i} className={`size-2.5 rounded-full ${i < onCard ? "bg-copper" : "bg-line"}`} />
                         ))}
                       </span>
                     </td>

@@ -2,19 +2,20 @@
 
 /*
   Mahlgrad tokens.
-  The ground is dark espresso with warm cream text; light "crema" sections (.crema) swap the
-  same tokens for a light palette, so every component works on both without extra classes.
+  One dark, warm ground (espresso) with cream text and a single copper accent, all photos graded
+  to the same warm low light. Headlines in a serif (Instrument Serif), text in Geist.
+  The .crema class (light palette) is kept for admin/legal views that may want it.
   Shape rule: one 6px radius for everything. Stamps are the only circles.
-  One accent (cobalt), set from brand.config.ts via --brand-accent / --brand-accent-light.
+  The accent comes from brand.config.ts via --brand-accent / --brand-accent-light.
 */
 :root {
-  --stone: #13100e;
-  --card: #1d1916;
-  --ink: #f1ebe2;
-  --muted: #b3a99d;
-  --line: rgb(241 235 226 / 0.14);
-  --cobalt: var(--brand-accent, #8095ff);
-  --cobalt-ink: var(--brand-accent-ink, #0d0f1c);
+  --stone: #14100d;
+  --card: #1f1915;
+  --ink: #f3eadf;
+  --muted: #b8a897;
+  --line: rgb(243 234 223 / 0.13);
+  --copper: var(--brand-accent, #d4935a);
+  --copper-ink: var(--brand-accent-ink, #1a0f07);
   --ok: #86c9a0;
   --danger: #ff8a73;
   color-scheme: dark;
@@ -26,8 +27,8 @@
   --ink: #1b1613;
   --muted: #5d544b;
   --line: rgb(27 22 19 / 0.13);
-  --cobalt: var(--brand-accent-light, #2342b8);
-  --cobalt-ink: var(--brand-accent-light-ink, #f7f5f0);
+  --copper: var(--brand-accent-light, #9a5420);
+  --copper-ink: var(--brand-accent-light-ink, #f7f5f0);
   --ok: #2f6b4a;
   --danger: #b3361f;
   color-scheme: light;
@@ -41,13 +42,13 @@
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
-  --color-cobalt: var(--cobalt);
-  --color-cobalt-ink: var(--cobalt-ink);
+  --color-copper: var(--copper);
+  --color-copper-ink: var(--copper-ink);
   --color-ok: var(--ok);
   --color-danger: var(--danger);
-  --color-espresso: #13100e;
-  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-familjen), ui-sans-serif, sans-serif;
+  --color-espresso: #14100d;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif), ui-serif, Georgia, serif;
   --radius-m: 6px;
 }
 
@@ -67,7 +68,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--cobalt);
+  outline: 2px solid var(--copper);
   outline-offset: 3px;
 }
 
@@ -75,18 +76,23 @@ body {
 @layer components {
   .display {
     font-family: var(--font-display);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.035em;
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.015em;
     text-wrap: balance;
+  }
+  /* the italic half of a headline, in copper */
+  .display em {
+    font-style: italic;
+    color: var(--copper);
   }
 
   .eyebrow {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--cobalt);
+    color: var(--copper);
   }
 
   .btn {
@@ -107,14 +113,14 @@ body {
     transform: translateY(1px);
   }
   .btn-primary {
-    background: var(--cobalt);
-    color: var(--cobalt-ink);
+    background: var(--copper);
+    color: var(--copper-ink);
   }
   .btn-primary:hover {
-    background: color-mix(in oklab, var(--cobalt) 86%, white);
+    background: color-mix(in oklab, var(--copper) 86%, white);
   }
   .crema .btn-primary:hover {
-    background: color-mix(in oklab, var(--cobalt) 86%, black);
+    background: color-mix(in oklab, var(--copper) 86%, black);
   }
   .btn-ghost {
     box-shadow: inset 0 0 0 1.5px var(--ink);
@@ -141,7 +147,7 @@ body {
     color: color-mix(in oklab, var(--muted) 85%, transparent);
   }
   .field:focus {
-    border-color: var(--cobalt);
+    border-color: var(--copper);
     outline: none;
   }
   .field[aria-invalid="true"] {
@@ -150,7 +156,7 @@ body {
 
   /* frosted panel for the floating header and controls over photography */
   .glass {
-    background: rgb(19 16 14 / 0.55);
+    background: rgb(20 16 13 / 0.5);
     backdrop-filter: blur(14px) saturate(1.3);
     -webkit-backdrop-filter: blur(14px) saturate(1.3);
     box-shadow:

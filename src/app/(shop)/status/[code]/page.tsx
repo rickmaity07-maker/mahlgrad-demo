@@ -22,7 +22,7 @@ export default async function StatusPage({ params }: PageProps<"/status/[code]">
       <h1 className="display mt-2 text-[clamp(2.6rem,6vw,4.4rem)]">
         {fill(t.status.thanks, { name: order.customer_name.split(" ")[0] })}
       </h1>
-      <p className="mt-4 text-xl font-medium text-cobalt">
+      <p className="mt-4 text-xl font-medium text-copper">
         {order.pickup_at ? fill(t.status.pickupAt, { time: formatTime(order.pickup_at, lang) }) : t.status.pickupAsap}
       </p>
 
@@ -47,7 +47,7 @@ export default async function StatusPage({ params }: PageProps<"/status/[code]">
           ))}
         </ul>
         {order.discount_cents > 0 ? (
-          <div className="flex justify-between border-t border-line pt-3 text-cobalt">
+          <div className="flex justify-between border-t border-line pt-3 text-copper">
             <span>{t.checkout.discount}</span>
             <span className="tabular-nums">-{formatPrice(order.discount_cents, lang)}</span>
           </div>

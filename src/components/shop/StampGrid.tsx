@@ -7,7 +7,7 @@ import { Coffee } from "@phosphor-icons/react";
  * Ten stamp circles. With `animate`, filled stamps press in one after another
  * the first time the card scrolls into view (instant under reduced motion).
  */
-export function StampGrid(props: { filled: number; total?: number; animate?: boolean; tone?: "onCobalt" | "onCard" }) {
+export function StampGrid(props: { filled: number; total?: number; animate?: boolean; tone?: "onCopper" | "onCard" }) {
   const total = props.total ?? 10;
   const ref = useRef<HTMLOListElement>(null);
   const [shown, setShown] = useState(!props.animate);
@@ -27,7 +27,7 @@ export function StampGrid(props: { filled: number; total?: number; animate?: boo
     return () => io.disconnect();
   }, [props.animate]);
 
-  const onCobalt = props.tone !== "onCard";
+  const onCopper = props.tone !== "onCard";
   return (
     <ol ref={ref} className="grid grid-cols-5 gap-3 sm:gap-4" aria-label={`${props.filled} / ${total}`}>
       {Array.from({ length: total }, (_, i) => {
@@ -37,12 +37,12 @@ export function StampGrid(props: { filled: number; total?: number; animate?: boo
           <li
             key={i}
             className={`grid aspect-square place-items-center rounded-full border-2 ${last ? "border-dashed" : ""} ${
-              onCobalt ? "border-cobalt-ink/45" : "border-line"
+              onCopper ? "border-copper-ink/45" : "border-line"
             }`}
           >
             <span
               className={`grid size-full place-items-center rounded-full transition-[scale,opacity] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] motion-reduce:transition-none ${
-                onCobalt ? "bg-cobalt-ink text-cobalt" : "bg-cobalt text-cobalt-ink"
+                onCopper ? "bg-copper-ink text-copper" : "bg-copper text-copper-ink"
               } ${on && shown ? "scale-100 opacity-100" : "scale-50 opacity-0"}`}
               style={{ transitionDelay: shown ? `${i * 110}ms` : "0ms" }}
             >

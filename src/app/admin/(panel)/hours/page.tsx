@@ -30,7 +30,7 @@ export default async function HoursPage() {
                 <input type="time" name={`close-${h.day}`} defaultValue={h.close} className="field w-32 py-2" />
               </label>
               <label className="flex items-center gap-2 text-sm">
-                <input type="checkbox" name={`closed-${h.day}`} defaultChecked={h.closed} className="size-5 accent-[var(--cobalt)]" />
+                <input type="checkbox" name={`closed-${h.day}`} defaultChecked={h.closed} className="size-5 accent-[var(--copper)]" />
                 {t.admin.hours.closed}
               </label>
             </fieldset>

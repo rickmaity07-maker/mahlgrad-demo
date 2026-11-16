@@ -14,16 +14,16 @@ export async function SiteHeader() {
           {BRAND.wordmark}
         </Link>
         <nav className="ml-6 hidden items-center gap-6 text-sm font-medium md:flex" aria-label="Main">
-          <Link href="/menu" className="transition-colors hover:text-cobalt">
+          <Link href="/menu" className="transition-colors hover:text-copper">
             {t.nav.menu}
           </Link>
-          <Link href="/menu#beans" className="transition-colors hover:text-cobalt">
+          <Link href="/menu#beans" className="transition-colors hover:text-copper">
             {t.nav.shop}
           </Link>
-          <Link href="/karte" className="transition-colors hover:text-cobalt">
+          <Link href="/karte" className="transition-colors hover:text-copper">
             {t.nav.card}
           </Link>
-          <Link href="/#visit" className="transition-colors hover:text-cobalt">
+          <Link href="/#visit" className="transition-colors hover:text-copper">
             {t.nav.hours}
           </Link>
         </nav>
