@@ -12,7 +12,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <div className="min-h-dvh">
       <header className="sticky top-0 z-30 border-b border-line bg-stone/95 backdrop-blur">
         <div className="flex h-14 items-center gap-4 px-4 sm:px-6">
-          <span className="display text-xl text-cobalt">{BRAND.wordmark}</span>
+          <span className="display text-xl text-copper">{BRAND.wordmark}</span>
           <AdminNav />
           <div className="ml-auto flex items-center gap-2">
             <LangToggle />

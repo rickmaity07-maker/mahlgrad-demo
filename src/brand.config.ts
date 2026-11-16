@@ -27,10 +27,10 @@ export const BRAND = {
   },
   colors: {
     /** the one accent on the dark espresso ground. Keep at least 4.5:1 with accentInk (WCAG AA). */
-    accent: "#8095ff",
-    accentInk: "#0d0f1c",
+    accent: "#d4935a",
+    accentInk: "#1a0f07",
     /** the same accent on light "crema" sections */
-    accentLight: "#2342b8",
+    accentLight: "#9a5420",
     accentLightInk: "#f7f5f0",
   },
   seo: {

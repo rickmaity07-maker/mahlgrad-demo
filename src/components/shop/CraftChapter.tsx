@@ -6,11 +6,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLang } from "@/components/LangProvider";
+import { FlowMedia } from "@/components/shop/FlowMedia";
+import { CLIPS } from "@/lib/media";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-/** one photo per step: roast, grind, brew, pick up */
+/** one photo per step: roast, grind, brew, pick up (each can become a Flow clip, see lib/media.ts) */
 const PHOTOS = ["/img/c4.jpg", "/img/c3.jpg", "/img/c8.jpg", "/img/c1.jpg"];
+const STEP_CLIPS = [CLIPS.roast, CLIPS.grind, CLIPS.pour, CLIPS.handoff];
 
 /**
  * Pinned chapter "from bean to cup": while the section is pinned, scrolling
@@ -84,20 +87,20 @@ export function CraftChapter() {
         className="relative h-svh min-h-[620px] overflow-hidden bg-espresso motion-reduce:hidden"
       >
         <div className="absolute inset-0 overflow-hidden md:left-[42%]">
-          {PHOTOS.map((src) => (
+          {PHOTOS.map((src, i) => (
             <div key={src} className="craft-photo absolute inset-0 will-change-transform">
-              <Image src={src} alt="" fill sizes="(min-width: 768px) 58vw, 100vw" className="object-cover" />
+              <FlowMedia clip={STEP_CLIPS[i]} poster={src} alt="" sizes="(min-width: 768px) 58vw, 100vw" />
             </div>
           ))}
           {/* phone: darken the photo under the copy; desktop: blend its left edge into the espresso panel */}
           <div
             className="absolute inset-0 md:hidden"
-            style={{ background: "linear-gradient(0deg, #13100e 8%, rgb(19 16 14 / 0.75) 42%, rgb(19 16 14 / 0.15) 75%)" }}
+            style={{ background: "linear-gradient(0deg, #14100d 8%, rgb(20 16 13 / 0.75) 42%, rgb(20 16 13 / 0.15) 75%)" }}
             aria-hidden="true"
           />
           <div
-            className="absolute inset-y-0 left-0 hidden w-48 md:block"
-            style={{ background: "linear-gradient(90deg, #13100e, transparent)" }}
+            className="absolute inset-y-0 -left-px hidden w-56 md:block"
+            style={{ background: "linear-gradient(90deg, #14100d, transparent)" }}
             aria-hidden="true"
           />
         </div>
@@ -107,8 +110,8 @@ export function CraftChapter() {
           <div className="relative mt-4 h-[15rem] md:h-[19rem] md:w-[38%]">
             {steps.map((s) => (
               <div key={s.key} className="craft-copy absolute inset-x-0 top-0">
-                <h2 className="display text-[clamp(2.4rem,4.6vw,4.4rem)]">{s.title}</h2>
-                <p className="mt-5 max-w-[38ch] text-lg text-ink/85">{s.body}</p>
+                <h2 className="display text-[clamp(2.8rem,5.4vw,5.2rem)]">{s.title}</h2>
+                <p className="mt-6 max-w-[38ch] text-lg leading-relaxed text-ink/85">{s.body}</p>
               </div>
             ))}
           </div>
@@ -116,14 +119,14 @@ export function CraftChapter() {
             {steps.map((s) => (
               <li
                 key={s.key}
-                className="craft-chip rounded-[var(--radius-m)] border border-line px-3 py-1.5 text-sm font-semibold text-muted transition-colors data-[on]:border-cobalt data-[on]:bg-cobalt data-[on]:text-cobalt-ink"
+                className="craft-chip rounded-[var(--radius-m)] border border-line px-3 py-1.5 text-sm font-medium text-muted transition-colors data-[on]:border-copper data-[on]:bg-copper data-[on]:text-copper-ink"
               >
                 {s.key}
               </li>
             ))}
           </ol>
           <div className="mt-6 h-0.5 w-full bg-line md:w-[38%]">
-            <div className="craft-bar h-0.5 origin-left bg-cobalt" style={{ transform: "scaleX(0)" }} />
+            <div className="craft-bar h-0.5 origin-left bg-copper" style={{ transform: "scaleX(0)" }} />
           </div>
         </div>
       </section>

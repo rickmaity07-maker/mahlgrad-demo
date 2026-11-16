@@ -21,8 +21,8 @@ export function ItemSheet() {
 }
 
 const chip = (on: boolean) =>
-  `cursor-pointer rounded-[var(--radius-m)] border-[1.5px] px-3.5 py-2 text-sm font-medium has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-cobalt ${
-    on ? "border-cobalt bg-cobalt text-cobalt-ink" : "border-line hover:border-ink"
+  `cursor-pointer rounded-[var(--radius-m)] border-[1.5px] px-3.5 py-2 text-sm font-medium has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-copper ${
+    on ? "border-copper bg-copper text-copper-ink" : "border-line hover:border-ink"
   }`;
 
 function ItemForm({ item }: { item: MenuItem }) {

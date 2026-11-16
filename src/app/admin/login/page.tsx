@@ -11,10 +11,10 @@ export default async function LoginPage() {
   if (await isAdmin()) redirect("/admin");
   const demoPassword = process.env.DEMO_MODE === "1" ? (process.env.ADMIN_PASSWORD ?? null) : null;
   return (
-    <div className="grid min-h-dvh place-items-center bg-cobalt px-4 text-cobalt-ink">
+    <div className="grid min-h-dvh place-items-center bg-copper px-4 text-copper-ink">
       <div className="w-full max-w-sm rounded-[var(--radius-m)] bg-stone p-7 text-ink">
         <div className="mb-6 flex items-center justify-between">
-          <p className="display text-3xl text-cobalt">{BRAND.wordmark}</p>
+          <p className="display text-3xl text-copper">{BRAND.wordmark}</p>
           <LangToggle />
         </div>
         <LoginForm demoPassword={demoPassword} />

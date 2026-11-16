@@ -69,7 +69,7 @@ export function StampLookup() {
           </div>
         ) : null}
         {state.kind === "card" && state.card ? (
-          <div className="rounded-[var(--radius-m)] bg-cobalt p-6 text-cobalt-ink sm:p-8">
+          <div className="rounded-[var(--radius-m)] bg-copper p-6 text-copper-ink sm:p-8">
             <p className="display mb-6 text-2xl">{BRAND.wordmark}</p>
             <StampGrid filled={Math.min(state.card.progress, state.card.perReward)} total={state.card.perReward} animate />
             <p className="mt-6 text-lg font-semibold">

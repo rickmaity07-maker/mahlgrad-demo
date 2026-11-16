@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Familjen_Grotesk, Inter_Tight } from "next/font/google";
+import { Geist, Instrument_Serif } from "next/font/google";
 import { BRAND } from "@/brand.config";
 import { LangProvider } from "@/components/LangProvider";
 import { MotionToggle } from "@/components/MotionToggle";
 import { getLang } from "@/lib/lang";
 import "./globals.css";
 
-const inter = Inter_Tight({ variable: "--font-inter-tight", subsets: ["latin"] });
-const familjen = Familjen_Grotesk({ variable: "--font-familjen", subsets: ["latin"] });
+const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
+const serif = Instrument_Serif({ variable: "--font-serif", subsets: ["latin"], weight: "400", style: ["normal", "italic"] });
 
 const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#13100e",
+  themeColor: "#14100d",
   colorScheme: "dark",
 };
 
@@ -45,7 +45,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang={lang}
-      className={`${inter.variable} ${familjen.variable} antialiased`}
+      className={`${geist.variable} ${serif.variable} antialiased`}
       style={brandVars}
       data-scroll-behavior="smooth"
     >

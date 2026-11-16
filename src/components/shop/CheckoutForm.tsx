@@ -159,12 +159,12 @@ export function CheckoutForm() {
         </label>
 
         {canRedeem ? (
-          <label className="flex cursor-pointer items-start gap-3 rounded-[var(--radius-m)] bg-cobalt p-4 text-cobalt-ink">
+          <label className="flex cursor-pointer items-start gap-3 rounded-[var(--radius-m)] bg-copper p-4 text-copper-ink">
             <input
               type="checkbox"
               checked={redeem}
               onChange={(e) => setRedeem(e.target.checked)}
-              className="mt-1 size-5 accent-[var(--cobalt-ink)]"
+              className="mt-1 size-5 accent-[var(--copper-ink)]"
             />
             <span>
               <span className="block font-semibold">{t.checkout.reward}</span>
@@ -198,7 +198,7 @@ export function CheckoutForm() {
         </ul>
         <dl className="mt-3 space-y-1.5 border-t border-line pt-4">
           {discount > 0 ? (
-            <div className="flex justify-between text-cobalt">
+            <div className="flex justify-between text-copper">
               <dt>{t.checkout.discount}</dt>
               <dd className="tabular-nums">-{formatPrice(discount, lang)}</dd>
             </div>

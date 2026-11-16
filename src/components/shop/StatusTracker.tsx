@@ -41,7 +41,7 @@ export function StatusTracker(props: { code: string; initial: OrderStatus }) {
         {STEPS.map((s, i) => (
           <li key={s} aria-current={i === current ? "step" : undefined}>
             <span
-              className={`block h-1.5 rounded-full transition-colors duration-500 ${i <= current ? "bg-cobalt" : "bg-line"}`}
+              className={`block h-1.5 rounded-full transition-colors duration-500 ${i <= current ? "bg-copper" : "bg-line"}`}
             />
             <span className={`mt-2 block text-sm font-semibold ${i <= current ? "" : "text-muted"}`}>{t.status.steps[s]}</span>
           </li>

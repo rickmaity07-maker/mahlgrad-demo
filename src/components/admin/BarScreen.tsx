@@ -45,7 +45,7 @@ export function BarScreen({ initial }: { initial: OrderView[] }) {
               <p className="mb-3 text-lg font-semibold">{o.customer_name}</p>
               <div className="flex-1">
                 <OrderLines order={o} large />
-                {o.note ? <p className="mt-4 rounded-[var(--radius-m)] bg-cobalt p-3 text-lg text-cobalt-ink">{o.note}</p> : null}
+                {o.note ? <p className="mt-4 rounded-[var(--radius-m)] bg-copper p-3 text-lg text-copper-ink">{o.note}</p> : null}
               </div>
               <button type="button" onClick={() => advance(o)} className="btn btn-primary mt-5 py-4 text-lg">
                 {o.status === "new" ? t.admin.orders.next.new : t.admin.bar.done}

@@ -42,7 +42,7 @@ export default async function MenuPage() {
                 <li key={item.id}>
                   <OpenItemButton
                     slug={item.slug}
-                    className="flex w-full items-center gap-4 rounded-[var(--radius-m)] bg-card p-3 text-left ring-cobalt hover:ring-[1.5px]"
+                    className="flex w-full items-center gap-4 rounded-[var(--radius-m)] bg-card p-3 text-left ring-copper hover:ring-[1.5px]"
                   >
                     {item.image ? (
                       <span className="relative size-20 shrink-0 overflow-hidden rounded-[var(--radius-m)] bg-ink sm:size-24">
@@ -58,7 +58,7 @@ export default async function MenuPage() {
                     <span className="min-w-0 flex-1 py-1">
                       <span className="flex items-baseline gap-2">
                         <span className="font-semibold">{pick(item, "name", lang)}</span>
-                        {item.tag ? <span className="text-xs font-semibold text-cobalt">{t.tags[item.tag]}</span> : null}
+                        {item.tag ? <span className="text-xs font-semibold text-copper">{t.tags[item.tag]}</span> : null}
                       </span>
                       <span className="mt-0.5 block text-sm text-muted">{pick(item, "desc", lang)}</span>
                       {item.stock !== null ? (

@@ -8,8 +8,11 @@ export async function SiteFooter() {
     <footer className="border-t border-line">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-24 pt-14 sm:px-6 md:grid-cols-[1fr_auto]">
         <div>
-          <p className="display text-[clamp(3.5rem,12vw,9rem)] text-cobalt">{BRAND.wordmark}</p>
-          <p className="mt-1 text-sm text-muted">{t.visit.address}</p>
+          <p className="display text-[clamp(3.5rem,11vw,8.5rem)] leading-none">
+            {BRAND.wordmark}
+            <span className="text-copper">.</span>
+          </p>
+          <p className="mt-4 text-sm text-muted">{t.visit.address}</p>
         </div>
         <nav className="flex flex-col gap-2 text-sm md:items-end md:justify-end" aria-label="Footer">
           <Link href="/menu" className="hover:underline">

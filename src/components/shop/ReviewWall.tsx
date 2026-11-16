@@ -13,22 +13,22 @@ const REVIEWS = [
 
 export function ReviewWall({ lang, title, note }: { lang: Lang; title: string; note: string }) {
   return (
-    <section className="crema py-28 md:py-40">
+    <section className="border-t border-line py-28 md:py-44">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 className="display text-[clamp(2.6rem,5vw,4.6rem)]">{title}</h2>
+          <h2 className="display text-[clamp(3rem,6vw,5.6rem)]">{title}</h2>
           <p className="text-sm text-muted">{note}</p>
         </div>
-        <ul className="mt-12 columns-1 gap-3 sm:columns-2 lg:columns-3">
+        <ul className="mt-14 columns-1 gap-4 sm:columns-2 lg:columns-3">
           {REVIEWS.map((r) => (
-            <li key={r.name} className="mb-3 break-inside-avoid rounded-[var(--radius-m)] bg-card p-6 shadow-[0_1px_0_rgb(27_22_19/0.06)]">
-              <Quotes size={26} weight="fill" className="text-cobalt" aria-hidden />
-              <p className="mt-3 text-lg leading-snug">{r[lang]}</p>
+            <li key={r.name} className="mb-4 break-inside-avoid rounded-[var(--radius-m)] border border-line bg-card/60 p-7">
+              <Quotes size={28} weight="fill" className="text-copper" aria-hidden />
+              <p className="display mt-4 text-[1.55rem] leading-[1.2]">{r[lang]}</p>
               <div className="mt-5 flex items-center justify-between gap-3">
-                <span className="font-semibold">{r.name}</span>
+                <span className="text-sm font-medium text-ink/85">{r.name}</span>
                 <span className="flex gap-0.5" role="img" aria-label={`${r.stars}/5`}>
                   {Array.from({ length: 5 }, (_, i) => (
-                    <Star key={i} size={15} weight="fill" className={i < r.stars ? "text-cobalt" : "text-line"} aria-hidden />
+                    <Star key={i} size={15} weight="fill" className={i < r.stars ? "text-copper" : "text-line"} aria-hidden />
                   ))}
                 </span>
               </div>
